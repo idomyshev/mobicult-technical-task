@@ -3,3 +3,6 @@ export interface Tab {
     name: string;
 }
 
+export interface Sticker {
+    text: string;
+}
