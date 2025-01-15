@@ -1,33 +1,38 @@
 <script setup lang="ts">
-import type {PropType} from "vue";
-import type {Tab} from "~/types";
-import type {RouteRecordNameGeneric} from "#vue-router";
+import type { PropType } from 'vue';
+import type { Tab } from '~/types';
+import type { RouteRecordNameGeneric } from '#vue-router';
 
 const route = useRoute();
 
 defineProps({
   items: {
     type: Array as PropType<Tab[]>,
-    required: true
-  }
-})
+    required: true,
+  },
+});
 
 const currentTabName = computed<RouteRecordNameGeneric>(() => {
   // This is simplified case when the tab name is equal to the route name.
   return route.name;
-})
+});
 </script>
 
 <template>
-<div class="tabs">
-  <RouterLink v-for="tab in items" class="tab" :class="{ 'tab--active': tab.name === currentTabName }" :to="{ name: tab.name }">
-    {{ tab.label }}
-  </RouterLink>
-</div>
+  <div class="tabs">
+    <RouterLink
+      v-for="tab in items"
+      class="tab"
+      :class="{ 'tab--active': tab.name === currentTabName }"
+      :to="{ name: tab.name }"
+    >
+      {{ tab.label }}
+    </RouterLink>
+  </div>
 </template>
 
 <style scoped lang="scss">
-@use "@/scss/tabs";
+@use '@/scss/tabs';
 .tabs {
   display: flex;
   gap: tabs.$space;
@@ -41,6 +46,7 @@ const currentTabName = computed<RouteRecordNameGeneric>(() => {
   cursor: pointer;
   text-decoration: underline;
   color: black;
+  user-select: none;
 
   &--active {
     text-decoration: none;
