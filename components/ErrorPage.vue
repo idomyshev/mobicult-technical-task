@@ -1,7 +1,7 @@
 <template>
-<div class="error-page">
-  <slot/>
-</div>
+  <div class="error-page">
+    <slot />
+  </div>
 </template>
 
 <style scoped lang="scss">
