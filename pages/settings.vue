@@ -1,10 +1,10 @@
 <script setup lang="ts">
-
+import StickersView from "~/components/StickersView.vue";
 </script>
 
 <template>
-<div class="settings-page">
-  Settings page
+<div class="normal-page">
+  <StickersView edit-mode />
 </div>
 </template>
 

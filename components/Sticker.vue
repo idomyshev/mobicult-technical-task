@@ -29,8 +29,8 @@ defineProps({
 
   &__inner {
     overflow: hidden;
-    width: 200px;
-    height: 94px;
+    width: 150px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
