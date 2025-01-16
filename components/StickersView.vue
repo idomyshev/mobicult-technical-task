@@ -33,30 +33,38 @@ const handleClickDelete = (item: ISticker) => {
 
 <template>
   <div class="stickers-view">
-    <div v-if="editMode" class="actions-panel">
-      <BasicButton :icon="AddIcon" @click="handleClickCreate" />
+    <div class="actions-panel">
+      <template v-if="editMode">
+        <BasicButton :icon="AddIcon" @click="handleClickCreate" />
+      </template>
     </div>
     <div v-if="stickers.length" class="stickers-container">
-      <Sticker
-        v-for="(item, index) in stickers"
-        :item="item"
-        :edit-mode="editMode"
-        :key="index"
-        @click:delete="handleClickDelete"
-        @click:edit="handleClickEdit"
-      />
+      <div class="stickers-container__inner">
+        <Sticker
+          v-for="item in stickers"
+          :key="item.id"
+          :item="item"
+          :edit-mode="editMode"
+          @click:delete="handleClickDelete"
+          @click:edit="handleClickEdit"
+        />
+      </div>
     </div>
-    <div v-else class="no-items">
-      {{
-        editMode ? lang.thereIsNoStickersYetLetsAdd : lang.thereIsNoStickersYet
-      }}
-      <BasicButton
-        v-if="editMode"
-        width="30px"
-        height="30px"
-        :icon="AddIcon"
-        @click="handleClickCreate"
-      />
+    <div v-else class="no-data">
+      <div>
+        {{
+          editMode
+            ? lang.thereIsNoStickersYetLetsAdd
+            : lang.thereIsNoStickersYet
+        }}
+        <BasicButton
+          v-if="editMode"
+          width="30px"
+          height="30px"
+          :icon="AddIcon"
+          @click="handleClickCreate"
+        />
+      </div>
     </div>
   </div>
   <StickerDrawer ref="stickerDrawerRef" />
@@ -64,25 +72,32 @@ const handleClickDelete = (item: ISticker) => {
 
 <style scoped lang="scss">
 .stickers-view {
+  height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr;
   gap: 20px;
 }
 
 .stickers-container {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+  }
 }
 
-.no-items {
-  display: flex;
-  padding-top: calc(100vh / 4);
-  flex-direction: column;
-  gap: 20px;
-  font-size: 1.125rem;
+.no-data {
   width: 100%;
-  text-align: center;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 1.125rem;
+  div {
+    display: grid;
+    place-items: center;
+    gap: 20px;
+  }
 }
 </style>

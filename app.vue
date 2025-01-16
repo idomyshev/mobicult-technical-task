@@ -7,7 +7,7 @@ const stickersStore = useStickersStore();
 const { loadDatabase } = stickersStore;
 
 onMounted(() => {
-  loadDatabase();
+  //loadDatabase();
 });
 </script>
 <template>
@@ -20,6 +20,10 @@ onMounted(() => {
 <style lang="scss" scoped>
 .app-container {
   height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  box-sizing: border-box;
   padding: 10px;
 }
 </style>

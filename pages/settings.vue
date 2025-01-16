@@ -3,12 +3,5 @@ import StickersView from "~/components/StickersView.vue";
 </script>
 
 <template>
-  <div class="normal-page">
-    <StickersView edit-mode />
-  </div>
+  <StickersView edit-mode />
 </template>
-
-<style lang="scss" scoped>
-.settings-page {
-}
-</style>

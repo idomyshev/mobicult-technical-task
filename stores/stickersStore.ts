@@ -6,6 +6,10 @@ import { storageKey } from "~/settings/storage";
 export const useStickersStore = defineStore("stickersStore", () => {
   const stickers = ref<ISticker[]>([]);
 
+  for (let i = 1; i <= 30; i++) {
+    stickers.value.push({ id: uuidv4(), text: uuidv4() });
+  }
+
   const addSticker = (item: IStickerForm) => {
     stickers.value.push({ id: uuidv4(), ...item });
     updateDatabase();

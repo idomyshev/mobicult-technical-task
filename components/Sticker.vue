@@ -35,22 +35,22 @@ defineProps({
 
 <style scoped lang="scss">
 .sticker {
+  width: 150px;
+  height: 150px;
   position: relative;
   padding: 20px 20px 35px 20px;
   box-sizing: border-box;
   border: 1px solid indianred;
   border-radius: 10px;
-  display: flex;
+  display: grid;
+  place-items: center;
   justify-content: center;
   align-items: center;
 
   &__inner {
+    max-width: 100%;
+    max-height: 100%;
     overflow: hidden;
-    width: 150px;
-    height: 135px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
   }
 }
