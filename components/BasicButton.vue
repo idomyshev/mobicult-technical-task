@@ -29,7 +29,7 @@ defineProps({
 <style scoped lang="scss">
 .basic-button {
   display: inline-block;
-  padding: 2px 10px;
+  padding: 8px 10px;
   border-radius: 5px;
   border: 1px solid #111;
   color: #111;

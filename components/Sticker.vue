@@ -61,7 +61,7 @@ const handleClickEdit = () => {
   width: 190px;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 2px;
   padding: 2px;
   display: flex;
   gap: 5px;
