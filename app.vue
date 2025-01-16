@@ -1,6 +1,14 @@
 <script lang="ts" setup>
 import { tabs } from "~/settings/tabs";
 import Tabs from "~/components/Tabs.vue";
+import { useStickersStore } from "~/stores/stickersStore";
+
+const stickersStore = useStickersStore();
+const { loadDatabase } = stickersStore;
+
+onMounted(() => {
+  loadDatabase();
+});
 </script>
 <template>
   <div class="app-container">

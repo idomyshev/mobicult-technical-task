@@ -21,8 +21,11 @@ defineProps({
 <template>
   <div class="sticker">
     <div v-if="editMode" class="actions-buttons">
-      <BasicButton :icon="DeleteIcon" @click="emit('click:delete', item)" />
-      <BasicButton :icon="EditIcon" @click="emit('click:edit', item)" />
+      <BasicButton
+        :icon="DeleteIcon"
+        @click="emit('click:delete', { ...item })"
+      />
+      <BasicButton :icon="EditIcon" @click="emit('click:edit', { ...item })" />
     </div>
     <div class="sticker__inner">
       {{ item.text }}

@@ -47,8 +47,11 @@ const handleClickDelete = (item: ISticker) => {
       />
     </div>
     <div v-else class="no-items">
-      {{ lang.thereIsNoStickersYet }}
+      {{
+        editMode ? lang.thereIsNoStickersYetLetsAdd : lang.thereIsNoStickersYet
+      }}
       <BasicButton
+        v-if="editMode"
         width="30px"
         height="30px"
         :icon="AddIcon"
@@ -75,6 +78,7 @@ const handleClickDelete = (item: ISticker) => {
 
 .no-items {
   display: flex;
+  padding-top: calc(100vh / 4);
   flex-direction: column;
   gap: 20px;
   font-size: 1.125rem;

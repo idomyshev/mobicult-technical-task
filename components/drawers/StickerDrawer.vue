@@ -7,7 +7,7 @@ import { useStickersStore } from "~/stores/stickersStore";
 
 const stickersStore = useStickersStore();
 
-const { addSticker } = stickersStore;
+const { addSticker, editSticker } = stickersStore;
 
 const initialDrawerState = {
   text: "",
@@ -38,7 +38,12 @@ const handleAction = () => {
       currentDrawerState[key as keyof IStickerForm] = value.trim();
     }
   });
-  addSticker({ ...currentDrawerState });
+
+  if (instanceId.value) {
+    editSticker({ id: instanceId.value, ...currentDrawerState });
+  } else {
+    addSticker({ ...currentDrawerState });
+  }
   handleCancel();
 };
 
