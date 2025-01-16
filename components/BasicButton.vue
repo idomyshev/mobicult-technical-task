@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
+import type { PropType } from "vue";
 
 defineProps({
   label: {
@@ -10,11 +10,11 @@ defineProps({
   },
   width: {
     type: String,
-    default: '20px',
+    default: "20px",
   },
   height: {
     type: String,
-    default: '20px',
+    default: "20px",
   },
 });
 </script>

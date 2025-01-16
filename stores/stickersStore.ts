@@ -1,8 +1,8 @@
-import { defineStore } from 'pinia';
-import type { Sticker } from '~/types';
-import { stickersMock } from '~/mockData/stickersMock';
+import { defineStore } from "pinia";
+import type { Sticker } from "~/types";
+import { stickersMock } from "~/mockData/stickersMock";
 
-export const useStickersStore = defineStore('stickersStore', () => {
+export const useStickersStore = defineStore("stickersStore", () => {
   const stickers = ref<Sticker[]>(stickersMock);
 
   const addSticker = (item: Sticker) => {

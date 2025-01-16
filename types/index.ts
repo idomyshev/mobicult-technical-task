@@ -6,8 +6,3 @@ export interface Tab {
 export interface Sticker {
   text: string;
 }
-
-export enum ButtonTypes {
-  Add = 'add',
-  Normal = 'normal',
-}

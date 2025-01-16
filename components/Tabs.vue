@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
-import type { Tab } from '~/types';
-import type { RouteRecordNameGeneric } from '#vue-router';
+import type { PropType } from "vue";
+import type { Tab } from "~/types";
+import type { RouteRecordNameGeneric } from "#vue-router";
 
 const route = useRoute();
 
@@ -32,7 +32,7 @@ const currentTabName = computed<RouteRecordNameGeneric>(() => {
 </template>
 
 <style scoped lang="scss">
-@use '@/scss/tabs';
+@use "@/scss/tabs";
 .tabs {
   display: flex;
   gap: tabs.$space;

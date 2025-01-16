@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
-import type { Sticker } from '~/types';
-import BasicButton from '~/components/BasicButton.vue';
-import EditIcon from '~/components/icons/EditIcon.vue';
-import DeleteIcon from '~/components/icons/DeleteIcon.vue';
+import type { PropType } from "vue";
+import type { Sticker } from "~/types";
+import BasicButton from "~/components/BasicButton.vue";
+import EditIcon from "~/components/icons/EditIcon.vue";
+import DeleteIcon from "~/components/icons/DeleteIcon.vue";
 
 defineProps({
   item: {
@@ -16,11 +16,11 @@ defineProps({
 });
 
 const handleClickDelete = () => {
-  console.log('handleClickDelete');
+  console.log("handleClickDelete");
 };
 
 const handleClickEdit = () => {
-  console.log('handleClickEdit');
+  console.log("handleClickEdit");
 };
 </script>
 

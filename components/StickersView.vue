@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { storeToRefs } from 'pinia';
-import BasicButton from '~/components/BasicButton.vue';
-import Sticker from '~/components/Sticker.vue';
-import AddIcon from '~/components/icons/AddIcon.vue';
+import { storeToRefs } from "pinia";
+import BasicButton from "~/components/BasicButton.vue";
+import Sticker from "~/components/Sticker.vue";
+import AddIcon from "~/components/icons/AddIcon.vue";
 
 const stickerStore = useStickersStore();
 const { stickers } = storeToRefs(stickerStore);
@@ -12,7 +12,7 @@ defineProps({
 });
 
 const handleClickCreate = () => {
-  console.log('handleClickCreate');
+  console.log("handleClickCreate");
 };
 </script>
 

@@ -1,4 +1,4 @@
-import type { Sticker } from '~/types';
+import type { Sticker } from "~/types";
 
 export const stickersMock: Sticker[] = Array.from(
   { length: 10 },
