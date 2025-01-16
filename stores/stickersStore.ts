@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
-import type { Sticker } from "~/types";
+import type { ISticker } from "~/types";
 import { stickersMock } from "~/mockData/stickersMock";
 
 export const useStickersStore = defineStore("stickersStore", () => {
-  const stickers = ref<Sticker[]>(stickersMock);
+  const stickers = ref<ISticker[]>(stickersMock);
 
-  const addSticker = (item: Sticker) => {
+  const addSticker = (item: ISticker) => {
     stickers.value.push(item);
   };
 
@@ -13,7 +13,7 @@ export const useStickersStore = defineStore("stickersStore", () => {
     stickers.value.splice(index, 1);
   };
 
-  const editSticker = (index: number, item: Sticker) => {
+  const editSticker = (index: number, item: ISticker) => {
     stickers.value[index] = item;
   };
 

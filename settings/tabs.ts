@@ -1,6 +1,6 @@
-import type { Tab } from "~/types";
+import type { ITab } from "~/types";
 
-export const tabs: Tab[] = [
+export const tabs: ITab[] = [
   {
     name: "index",
     label: "Dashboard",

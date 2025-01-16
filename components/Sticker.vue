@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
-import type { Sticker } from "~/types";
-import BasicButton from "~/components/BasicButton.vue";
+import type { ISticker } from "~/types";
+import BasicButton from "~/components/basic/BasicButton.vue";
 import EditIcon from "~/components/icons/EditIcon.vue";
 import DeleteIcon from "~/components/icons/DeleteIcon.vue";
 
 defineProps({
   item: {
-    type: Object as PropType<Sticker>,
+    type: Object as PropType<ISticker>,
     required: true,
   },
   editMode: {

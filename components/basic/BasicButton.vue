@@ -16,11 +16,19 @@ defineProps({
     type: String,
     default: "20px",
   },
+  color: {
+    type: String,
+    default: "#999",
+  },
 });
 </script>
 
 <template>
-  <div class="basic-button" :class="{ 'icon-button': !!icon }">
+  <div
+    class="basic-button"
+    :class="{ 'icon-button': !!icon }"
+    :style="{ borderColor: color }"
+  >
     <template v-if="label">{{ label }}</template>
     <component :is="icon" :style="{ width, height }" />
   </div>
@@ -31,11 +39,12 @@ defineProps({
   display: inline-block;
   padding: 8px 10px;
   border-radius: 5px;
-  border: 1px solid #111;
+  border: 1px solid indianred;
   color: #111;
   cursor: pointer;
   text-transform: uppercase;
   user-select: none;
+  font-size: 0.9375rem;
 }
 
 .icon-button {
@@ -44,7 +53,8 @@ defineProps({
 }
 
 .basic-button:hover {
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 1px #cd5c5c33;
+  opacity: 0.95;
 }
 
 .icon-button:hover {

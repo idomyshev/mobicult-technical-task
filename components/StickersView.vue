@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
-import BasicButton from "~/components/BasicButton.vue";
+import BasicButton from "~/components/basic/BasicButton.vue";
 import Sticker from "~/components/Sticker.vue";
 import AddIcon from "~/components/icons/AddIcon.vue";
-import BasicDrawer from "~/components/BasicDrawer.vue";
-import { lang } from "~/lang";
+import StickerDrawer from "~/components/drawers/StickerDrawer.vue";
 
 const stickerStore = useStickersStore();
 const { stickers } = storeToRefs(stickerStore);
 
-const stickerDrawerRef = ref<typeof BasicDrawer | undefined>();
+const stickerDrawerRef = ref<typeof StickerDrawer | undefined>();
 
 defineProps({
   editMode: Boolean,
@@ -34,7 +33,7 @@ const handleClickCreate = () => {
       />
     </div>
   </div>
-  <BasicDrawer ref="stickerDrawerRef" :title="lang.delete" />
+  <StickerDrawer ref="stickerDrawerRef" />
 </template>
 
 <style scoped lang="scss">

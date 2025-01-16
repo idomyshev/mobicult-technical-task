@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type { PropType } from "vue";
-import type { Tab } from "~/types";
+import type { ITab } from "~/types";
 import type { RouteRecordNameGeneric } from "#vue-router";
 
 const route = useRoute();
 
 defineProps({
   items: {
-    type: Array as PropType<Tab[]>,
+    type: Array as PropType<ITab[]>,
     required: true,
   },
 });

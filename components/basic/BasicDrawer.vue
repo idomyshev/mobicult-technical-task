@@ -1,15 +1,29 @@
 <script setup lang="ts">
-import BasicButton from "~/components/BasicButton.vue";
+import BasicButton from "~/components/basic/BasicButton.vue";
 import { lang } from "~/lang";
 
-const visible = ref<boolean>(true);
+const visible = ref<boolean>(false);
+
+const emit = defineEmits(["click:cancel", "click:action"]);
 
 defineProps({
   title: {
     type: String,
     required: true,
   },
+  actionButtonLabel: {
+    type: String,
+    required: true,
+  },
 });
+
+const handleClickCancel = () => {
+  emit("click:cancel");
+};
+
+const handleClickAction = () => {
+  emit("click:action");
+};
 
 defineExpose({
   open() {
@@ -30,7 +44,12 @@ defineExpose({
           <slot />
         </div>
         <div class="basic-drawer__buttons">
-          <BasicButton :label="lang.create" />
+          <BasicButton :label="lang.cancel" @click="handleClickCancel" />
+          <BasicButton
+            :label="actionButtonLabel"
+            :color="'indianred'"
+            @click="handleClickAction"
+          />
         </div>
       </div>
     </Teleport>
@@ -42,7 +61,10 @@ defineExpose({
   position: absolute;
   top: 0;
   right: 0;
+  gap: 20px;
   width: 30vw;
+  min-width: 300px;
+  max-width: 500px;
   height: 100vh;
   background: #fff;
   border-left: 1px solid #eee;
@@ -63,6 +85,7 @@ defineExpose({
   &__buttons {
     display: flex;
     justify-content: flex-end;
+    gap: 20px;
   }
 }
 

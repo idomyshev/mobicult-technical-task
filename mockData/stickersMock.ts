@@ -1,10 +1,10 @@
-import type { Sticker } from "~/types";
+import type { ISticker } from "~/types";
 
-export const stickersMock: Sticker[] = Array.from(
+export const stickersMock: ISticker[] = Array.from(
   { length: 10 },
   (_, i) => i,
 ).map((index) => {
   return {
     text: `Стикер ${index + 1}`,
-  } as Sticker;
+  } as ISticker;
 });
