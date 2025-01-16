@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { lang } from "./lang";
+import ErrorPage from "~/components/ErrorPage.vue";
 
 const props = defineProps(["error"]);
 </script>

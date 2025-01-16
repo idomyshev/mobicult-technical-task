@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import StickersView from '~/components/StickersView.vue';
+import StickersView from "~/components/StickersView.vue";
 </script>
 
 <template>
