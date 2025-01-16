@@ -6,7 +6,7 @@ const visible = ref<boolean>(false);
 
 const emit = defineEmits(["click:cancel", "click:action"]);
 
-defineProps({
+const props = defineProps({
   title: {
     type: String,
     required: true,
@@ -15,6 +15,9 @@ defineProps({
     type: String,
     required: true,
   },
+  actionDisabled: {
+    type: Boolean,
+  },
 });
 
 const handleClickCancel = () => {
@@ -22,6 +25,10 @@ const handleClickCancel = () => {
 };
 
 const handleClickAction = () => {
+  if (props.actionDisabled) {
+    return;
+  }
+
   emit("click:action");
 };
 
@@ -48,6 +55,7 @@ defineExpose({
           <BasicButton
             :label="actionButtonLabel"
             :color="'indianred'"
+            :disabled="actionDisabled"
             @click="handleClickAction"
           />
         </div>
@@ -109,9 +117,4 @@ defineExpose({
 .basic-drawer-leave-to {
   transform: translateX(100%);
 }
-
-//.basic-drawer-enter-from,
-//.basic-drawer-leave-to {
-//  opacity: 0;
-//}
 </style>

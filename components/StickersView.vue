@@ -4,6 +4,7 @@ import BasicButton from "~/components/basic/BasicButton.vue";
 import Sticker from "~/components/Sticker.vue";
 import AddIcon from "~/components/icons/AddIcon.vue";
 import StickerDrawer from "~/components/drawers/StickerDrawer.vue";
+import { useStickersStore } from "~/stores/stickersStore";
 
 const stickerStore = useStickersStore();
 const { stickers } = storeToRefs(stickerStore);

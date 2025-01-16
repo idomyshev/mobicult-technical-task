@@ -20,13 +20,16 @@ defineProps({
     type: String,
     default: "#999",
   },
+  disabled: {
+    type: Boolean,
+  },
 });
 </script>
 
 <template>
   <div
     class="basic-button"
-    :class="{ 'icon-button': !!icon }"
+    :class="{ 'icon-button': !!icon, disabled: disabled }"
     :style="{ borderColor: color }"
   >
     <template v-if="label">{{ label }}</template>
@@ -58,6 +61,13 @@ defineProps({
 }
 
 .icon-button:hover {
+  box-shadow: none;
+}
+
+.disabled,
+.disabled:hover {
+  opacity: 0.5;
+  cursor: initial;
   box-shadow: none;
 }
 </style>

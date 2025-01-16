@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const data = defineModel();
+const data = defineModel<string>();
 
 defineProps({
   height: {
