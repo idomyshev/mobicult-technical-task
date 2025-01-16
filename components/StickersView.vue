@@ -74,12 +74,14 @@ const handleClickDelete = (item: ISticker) => {
 .stickers-view {
   height: 100%;
   width: 100%;
+  overflow-y: auto;
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 20px;
 }
 
 .stickers-container {
+  overflow-y: auto;
   &__inner {
     display: flex;
     flex-wrap: wrap;
