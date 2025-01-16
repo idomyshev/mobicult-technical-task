@@ -8,4 +8,5 @@ export const lang = {
   error404: "Oops... the page wasn't found!",
   save: "Save",
   somethingWentWrong: "Something went wrong...",
+  thereIsNoStickersYet: "There is no stickers yet! Let's add first one... ",
 };

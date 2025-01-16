@@ -5,6 +5,8 @@ import BasicButton from "~/components/basic/BasicButton.vue";
 import EditIcon from "~/components/icons/EditIcon.vue";
 import DeleteIcon from "~/components/icons/DeleteIcon.vue";
 
+const emit = defineEmits(["click:delete", "click:edit"]);
+
 defineProps({
   item: {
     type: Object as PropType<ISticker>,
@@ -14,21 +16,13 @@ defineProps({
     type: Boolean,
   },
 });
-
-const handleClickDelete = () => {
-  console.log("handleClickDelete");
-};
-
-const handleClickEdit = () => {
-  console.log("handleClickEdit");
-};
 </script>
 
 <template>
   <div class="sticker">
     <div v-if="editMode" class="actions-buttons">
-      <BasicButton :icon="DeleteIcon" @click="handleClickDelete" />
-      <BasicButton :icon="EditIcon" @click="handleClickEdit" />
+      <BasicButton :icon="DeleteIcon" @click="emit('click:delete', item)" />
+      <BasicButton :icon="EditIcon" @click="emit('click:edit', item)" />
     </div>
     <div class="sticker__inner">
       {{ item.text }}
@@ -39,7 +33,8 @@ const handleClickEdit = () => {
 <style scoped lang="scss">
 .sticker {
   position: relative;
-  padding: 20px;
+  padding: 20px 20px 35px 20px;
+  box-sizing: border-box;
   border: 1px solid indianred;
   border-radius: 10px;
   display: flex;
@@ -49,7 +44,7 @@ const handleClickEdit = () => {
   &__inner {
     overflow: hidden;
     width: 150px;
-    height: 150px;
+    height: 135px;
     display: flex;
     justify-content: center;
     align-items: center;

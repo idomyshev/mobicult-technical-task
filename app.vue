@@ -11,6 +11,7 @@ import Tabs from "~/components/Tabs.vue";
 
 <style lang="scss" scoped>
 .app-container {
+  height: 100%;
   padding: 10px;
 }
 </style>

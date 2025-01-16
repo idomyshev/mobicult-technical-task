@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import type { PropType } from "vue";
 import BasicDrawer from "~/components/basic/BasicDrawer.vue";
-import type { ISticker } from "~/types";
+import type { ISticker, IStickerForm } from "~/types";
 import { lang } from "~/lang";
 import BasicTextArea from "~/components/basic/BasicTextArea.vue";
 import { useStickersStore } from "~/stores/stickersStore";
@@ -14,42 +13,46 @@ const initialDrawerState = {
   text: "",
 };
 
-defineProps({
-  item: {
-    type: Object as PropType<ISticker>,
-  },
+const currentDrawerState = reactive<IStickerForm>({
+  ...initialDrawerState,
 });
 
-const currentDrawerState = reactive<ISticker>({ ...initialDrawerState });
-
 const basicDrawerRef = ref<typeof BasicDrawer | undefined>();
+const instanceId = ref<string>();
 
 const isValid = computed<boolean>(() => {
   return Object.values(currentDrawerState).every((value) => {
-    return typeof value === "string" ? value.trim() : value;
+    return typeof value === "string" ? value.trim() : true;
   });
 });
 
 const handleCancel = () => {
   basicDrawerRef.value.close();
-  Object.assign(currentDrawerState, { ...initialDrawerState });
+  reinitializeDrawerData();
 };
 
 const handleAction = () => {
   // Trim string values before save.
   Object.entries(currentDrawerState).forEach(([key, value]) => {
     if (typeof value === "string") {
-      currentDrawerState[key as keyof ISticker] = value.trim();
+      currentDrawerState[key as keyof IStickerForm] = value.trim();
     }
   });
   addSticker({ ...currentDrawerState });
   handleCancel();
 };
 
+const reinitializeDrawerData = () => {
+  instanceId.value = undefined;
+  Object.assign(currentDrawerState, { ...initialDrawerState });
+};
+
 defineExpose({
   open(item?: ISticker) {
     if (item) {
-      Object.assign(currentDrawerState, item);
+      const { id, ...form } = item;
+      instanceId.value = id;
+      Object.assign(currentDrawerState, form);
     }
 
     basicDrawerRef.value.open();
@@ -60,8 +63,8 @@ defineExpose({
 <template>
   <BasicDrawer
     ref="basicDrawerRef"
-    :title="item ? lang.editSticker : lang.createSticker"
-    :action-button-label="item ? lang.save : lang.create"
+    :title="instanceId ? lang.editSticker : lang.createSticker"
+    :action-button-label="instanceId ? lang.save : lang.create"
     :action-disabled="!isValid"
     @click:cancel="handleCancel"
     @click:action="handleAction"
