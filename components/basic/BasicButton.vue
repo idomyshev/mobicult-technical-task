@@ -49,6 +49,9 @@ defineProps({
   cursor: pointer;
   text-transform: uppercase;
   user-select: none;
+  transition:
+    box-shadow 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .icon-button {
@@ -67,6 +70,7 @@ defineProps({
 
 .icon-button:hover {
   box-shadow: none;
+  opacity: 0.5;
 }
 
 .disabled,

@@ -54,7 +54,12 @@ const handleConfirmDelete = () => {
   <div class="stickers-view">
     <div class="actions-panel">
       <template v-if="editMode">
-        <BasicButton :icon="AddIcon" @click="handleClickCreate" />
+        <BasicButton
+          width="30px"
+          height="30px"
+          :icon="AddIcon"
+          @click="handleClickCreate"
+        />
       </template>
     </div>
     <div v-if="stickers.length" class="stickers-container">
