@@ -2,12 +2,18 @@
 import { tabs } from "~/settings/tabs";
 import BasicTabs from "~/components/basic/BasicTabs.vue";
 import { useStickersStore } from "~/stores/stickersStore";
+import { storageKey } from "~/settings/storage";
 
 const stickersStore = useStickersStore();
 const { loadDatabase } = stickersStore;
 
 onMounted(() => {
   loadDatabase();
+  window.addEventListener("storage", (event) => {
+    if (event.key === storageKey) {
+      loadDatabase();
+    }
+  });
 });
 </script>
 <template>

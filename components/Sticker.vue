@@ -35,8 +35,8 @@ defineProps({
 
 <style scoped lang="scss">
 .sticker {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   position: relative;
   padding: 20px 20px 35px 20px;
   box-sizing: border-box;
@@ -50,7 +50,7 @@ defineProps({
   &__inner {
     max-width: 100%;
     max-height: 100%;
-    overflow: hidden;
+    overflow-y: hidden;
     text-align: center;
   }
 }
