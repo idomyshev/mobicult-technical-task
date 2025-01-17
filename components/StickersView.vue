@@ -10,7 +10,7 @@ import type { ISticker } from "~/types";
 import BasicModal from "~/components/basic/BasicModal.vue";
 
 const stickerStore = useStickersStore();
-const { stickers } = storeToRefs(stickerStore);
+const { stickers, isDataLoading } = storeToRefs(stickerStore);
 const { deleteSticker } = stickerStore;
 
 const stickerDrawerRef = ref<typeof StickerDrawer | undefined>();
@@ -75,7 +75,7 @@ const handleConfirmDelete = () => {
         />
       </div>
     </div>
-    <div v-else class="no-data">
+    <div v-else-if="!isDataLoading" class="no-data">
       <div>
         <template v-if="editMode">
           {{ lang.thereIsNoStickersYetLetsAdd[0] }}<br />

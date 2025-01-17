@@ -5,6 +5,7 @@ import { storageKey } from "~/settings/storage";
 
 export const useStickersStore = defineStore("stickersStore", () => {
   const stickers = ref<ISticker[]>([]);
+  const isDataLoading = ref<boolean>(true);
 
   const addSticker = (item: IStickerForm) => {
     stickers.value.push({ id: uuidv4(), ...item });
@@ -42,10 +43,13 @@ export const useStickersStore = defineStore("stickersStore", () => {
         stickers.value = parsedJson;
       }
     }
+
+    isDataLoading.value = false;
   };
 
   return {
     stickers,
+    isDataLoading,
     addSticker,
     editSticker,
     deleteSticker,

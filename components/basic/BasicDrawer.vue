@@ -72,7 +72,7 @@ defineExpose({
 @import "@/scss/typography";
 
 .basic-drawer {
-  z-index: z-indexes.$basic-drawer-z-index;
+  z-index: z-indexes.$basic-drawer;
   position: fixed;
   top: 0;
   right: 0;

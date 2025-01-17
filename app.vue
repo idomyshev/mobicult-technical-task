@@ -3,6 +3,7 @@ import { tabs } from "~/settings/tabs";
 import BasicTabs from "~/components/basic/BasicTabs.vue";
 import { useStickersStore } from "~/stores/stickersStore";
 import { storageKey } from "~/settings/storage";
+import BasicLoader from "~/components/basic/BasicLoader.vue";
 
 const stickersStore = useStickersStore();
 const { loadDatabase } = stickersStore;
@@ -21,6 +22,7 @@ onMounted(() => {
     <BasicTabs :items="tabs" />
     <NuxtPage />
   </div>
+  <BasicLoader />
 </template>
 
 <style lang="scss" scoped>

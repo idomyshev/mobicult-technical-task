@@ -56,7 +56,7 @@ defineExpose({
 @import "@/scss/typography";
 
 .basic-modal {
-  z-index: z-indexes.$basic-modal-z-index;
+  z-index: z-indexes.$basic-modal;
   position: fixed;
   top: 0;
   left: 0;
