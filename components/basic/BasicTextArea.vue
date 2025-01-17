@@ -4,7 +4,7 @@ const data = defineModel<string>();
 defineProps({
   height: {
     type: String,
-    default: "150px",
+    default: "200px",
   },
   placeholder: {
     type: String,

@@ -68,7 +68,7 @@ defineExpose({
     display: grid;
     grid-template-rows: 1fr auto;
     gap: 20px;
-    width: 300px;
+    width: 250px;
     min-height: 150px;
     border-radius: 5px;
     padding: 20px;

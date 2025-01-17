@@ -50,8 +50,13 @@ defineProps({
   &__inner {
     max-width: 100%;
     max-height: 100%;
-    overflow-y: hidden;
     text-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
   }
 }
 
