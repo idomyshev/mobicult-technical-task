@@ -72,6 +72,7 @@ defineExpose({
 @import "@/scss/typography";
 
 .basic-drawer {
+  z-index: z-indexes.$basic-drawer-z-index;
   position: fixed;
   top: 0;
   right: 0;
@@ -81,7 +82,6 @@ defineExpose({
   background-color: colors.$basic-drawer-overlay-background;
 
   &__inner {
-    z-index: z-indexes.$basic-drawer-z-index;
     justify-self: end;
     display: grid;
     grid-template-rows: auto 1fr auto;

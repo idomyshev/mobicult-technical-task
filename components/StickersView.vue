@@ -7,12 +7,15 @@ import StickerDrawer from "~/components/drawers/StickerDrawer.vue";
 import { useStickersStore } from "~/stores/stickersStore";
 import { lang } from "../lang";
 import type { ISticker } from "~/types";
+import BasicModal from "~/components/basic/BasicModal.vue";
 
 const stickerStore = useStickersStore();
 const { stickers } = storeToRefs(stickerStore);
 const { deleteSticker } = stickerStore;
 
 const stickerDrawerRef = ref<typeof StickerDrawer | undefined>();
+const confirmDeleteModalRef = ref<typeof BasicModal | undefined>();
+const selectedInstance = ref<ISticker | null>(null);
 
 defineProps({
   editMode: Boolean,
@@ -27,7 +30,23 @@ const handleClickEdit = (item: ISticker) => {
 };
 
 const handleClickDelete = (item: ISticker) => {
-  deleteSticker(item);
+  selectedInstance.value = item;
+  confirmDeleteModalRef.value?.open();
+};
+
+const handleCancelDelete = () => {
+  selectedInstance.value = null;
+  confirmDeleteModalRef.value?.close();
+};
+
+const handleConfirmDelete = () => {
+  if (!selectedInstance.value) {
+    throw new Error("handleConfirmDelete: selectedInstance is not defined");
+  }
+
+  deleteSticker(selectedInstance.value);
+  selectedInstance.value = null;
+  confirmDeleteModalRef.value?.close();
 };
 </script>
 
@@ -68,6 +87,13 @@ const handleClickDelete = (item: ISticker) => {
     </div>
   </div>
   <StickerDrawer ref="stickerDrawerRef" />
+  <BasicModal
+    ref="confirmDeleteModalRef"
+    :title="lang.doYouConfirmDeleteSticker"
+    :text="lang.thisActionCannotBeUndone"
+    @click:confirm="handleConfirmDelete"
+    @click:cancel="handleCancelDelete"
+  />
 </template>
 
 <style scoped lang="scss">
@@ -102,6 +128,7 @@ const handleClickDelete = (item: ISticker) => {
     display: grid;
     place-items: center;
     gap: 20px;
+    text-align: center;
   }
 }
 </style>

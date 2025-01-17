@@ -1,8 +1,10 @@
 export const lang = {
   cancel: "Cancel",
+  confirm: "Confirm",
   create: "Create",
   createSticker: "Create Sticker",
   delete: "Delete",
+  doYouConfirmDeleteSticker: "Do you confirm to delete sticker?",
   editSticker: "Edit Sticker",
   enterTextForSticker: "Enter text for sticker...",
   error404: "Oops... the page wasn't found!",
@@ -10,5 +12,6 @@ export const lang = {
   thereIsNoStickersYet: "There is no stickers yet...",
   thereIsNoStickersYetLetsAdd:
     "There is no stickers yet... Let's add first one! ",
+  thisActionCannotBeUndone: "This action cannot be undone.",
   update: "Update",
 };
