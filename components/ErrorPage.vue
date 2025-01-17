@@ -5,12 +5,11 @@
 </template>
 
 <style scoped lang="scss">
+@import "@/scss/typography";
 .error-page {
-  display: flex;
+  display: grid;
   width: 100%;
   height: 100%;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
+  place-items: center;
 }
 </style>

@@ -32,20 +32,19 @@ const currentTabName = computed<RouteRecordNameGeneric>(() => {
 </template>
 
 <style scoped lang="scss">
-@use "@/scss/tabs";
+@use "@/scss/colors";
 .tabs {
   display: flex;
-  gap: tabs.$space;
+  gap: 20px;
   margin-bottom: 30px;
 }
 
 .tab {
-  padding: tabs.$padding;
-  background: tabs.$tab-background;
-  border-radius: tabs.$border-radius;
+  padding: 10px 20px;
+  background: colors.$tab-background;
+  border-radius: 10px;
   cursor: pointer;
   text-decoration: underline;
-  color: black;
   user-select: none;
 
   &--active {

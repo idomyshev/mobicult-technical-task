@@ -69,7 +69,7 @@ defineExpose({
   <BasicDrawer
     ref="basicDrawerRef"
     :title="instanceId ? lang.editSticker : lang.createSticker"
-    :action-button-label="instanceId ? lang.save : lang.create"
+    :action-button-label="instanceId ? lang.update : lang.create"
     :action-disabled="!isValid"
     @click:cancel="handleCancel"
     @click:action="handleAction"

@@ -46,18 +46,20 @@ defineExpose({
   <Transition name="basic-drawer">
     <Teleport to="body">
       <div v-if="visible" class="basic-drawer">
-        <div class="basic-drawer__title">{{ title }}</div>
-        <div class="basic-drawer__body">
-          <slot />
-        </div>
-        <div class="basic-drawer__buttons">
-          <BasicButton :label="lang.cancel" @click="handleClickCancel" />
-          <BasicButton
-            :label="actionButtonLabel"
-            :color="'indianred'"
-            :disabled="actionDisabled"
-            @click="handleClickAction"
-          />
+        <div v-if="visible" class="basic-drawer__inner">
+          <div class="basic-drawer__title">{{ title }}</div>
+          <div class="basic-drawer__body">
+            <slot />
+          </div>
+          <div class="basic-drawer__buttons">
+            <BasicButton :label="lang.cancel" @click="handleClickCancel" />
+            <BasicButton
+              :label="actionButtonLabel"
+              :disabled="actionDisabled"
+              primary
+              @click="handleClickAction"
+            />
+          </div>
         </div>
       </div>
     </Teleport>
@@ -65,29 +67,41 @@ defineExpose({
 </template>
 
 <style lang="scss" scoped>
+@use "@/scss/colors";
+@use "@/scss/z-indexes";
+@import "@/scss/typography";
+
 .basic-drawer {
   position: fixed;
   top: 0;
   right: 0;
-  gap: 20px;
-  width: 30vw;
-  min-width: 300px;
-  max-width: 500px;
+  width: 100vw;
   height: 100vh;
-  background: #fff;
-  border-left: 1px solid #eee;
-  padding: 20px;
-  box-sizing: border-box;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
+  &__inner {
+    z-index: z-indexes.$basic-drawer-z-index;
+    justify-self: end;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    width: 30vw;
+    height: 100vh;
+    min-width: 300px;
+    max-width: 500px;
+    box-sizing: border-box;
+    padding: 20px;
+    gap: 20px;
+    background: colors.$basic-drawer-background;
+    border-left: 1px solid colors.$basic-drawer-border;
+    box-shadow: -5px 0 10px colors.$basic-drawer-shadow;
+  }
 
   &__title {
-    font-size: 1.5rem;
+    @include titles-m;
   }
 
   &__body {
-    flex-grow: 1;
+    overflow-y: auto;
   }
 
   &__buttons {

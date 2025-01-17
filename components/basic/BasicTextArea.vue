@@ -28,7 +28,6 @@ defineProps({
 <style scoped lang="scss">
 .basic-text-area {
   textarea {
-    font-size: 1rem;
     padding: 5px;
     width: 100%;
     box-sizing: border-box;

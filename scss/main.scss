@@ -1,6 +1,10 @@
-html, input {
-  font-family: Manrope, sans-serif;
-  font-size: 1rem;
+@use "colors";
+@import "typography";
+
+
+* {
+  @include all-document;
+  color: colors.$main-text-color;
 }
 
 html,

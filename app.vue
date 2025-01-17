@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { tabs } from "~/settings/tabs";
-import Tabs from "~/components/Tabs.vue";
+import BasicTabs from "~/components/basic/BasicTabs.vue";
 import { useStickersStore } from "~/stores/stickersStore";
 
 const stickersStore = useStickersStore();
@@ -12,7 +12,7 @@ onMounted(() => {
 </script>
 <template>
   <div class="app-container">
-    <Tabs :items="tabs" />
+    <BasicTabs :items="tabs" />
     <NuxtPage />
   </div>
 </template>
