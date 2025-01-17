@@ -22,6 +22,7 @@ const currentTabName = computed<RouteRecordNameGeneric>(() => {
   <div class="tabs">
     <RouterLink
       v-for="tab in items"
+      :key="tab.name"
       class="tab"
       :class="{ 'tab--active': tab.name === currentTabName }"
       :to="{ name: tab.name }"
