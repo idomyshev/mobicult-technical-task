@@ -11,8 +11,10 @@ export const lang = {
   error404: "Oops... the page wasn't found!",
   somethingWentWrong: "Something went wrong...",
   thereIsNoStickersYet: "There is no stickers yet...",
-  thereIsNoStickersYetLetsAdd:
-    "There is no stickers yet... Let's add first one! ",
+  thereIsNoStickersYetLetsAdd: [
+    "There is no stickers yet...",
+    "Let's add first one!",
+  ],
   thisActionCannotBeUndone: "This action cannot be undone.",
   update: "Update",
 };

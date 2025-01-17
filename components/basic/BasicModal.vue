@@ -79,7 +79,7 @@ defineExpose({
 }
 
 .title {
-  @include titles-m;
+  @include title-m;
 }
 
 .actions {

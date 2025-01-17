@@ -55,6 +55,7 @@ const handleConfirmDelete = () => {
     <div class="actions-panel">
       <template v-if="editMode">
         <BasicButton
+          v-if="stickers.length"
           width="30px"
           height="30px"
           :icon="AddIcon"
@@ -76,15 +77,15 @@ const handleConfirmDelete = () => {
     </div>
     <div v-else class="no-data">
       <div>
-        {{
-          editMode
-            ? lang.thereIsNoStickersYetLetsAdd
-            : lang.thereIsNoStickersYet
-        }}
+        <template v-if="editMode">
+          {{ lang.thereIsNoStickersYetLetsAdd[0] }}<br />
+          {{ lang.thereIsNoStickersYetLetsAdd[1] }}
+        </template>
+        <template v-else> {{ lang.thereIsNoStickersYet }}</template>
         <BasicButton
           v-if="editMode"
-          width="30px"
-          height="30px"
+          width="50px"
+          height="50px"
           :icon="AddIcon"
           @click="handleClickCreate"
         />
@@ -129,7 +130,8 @@ const handleConfirmDelete = () => {
   display: grid;
   place-items: center;
   div {
-    @include titles-m;
+    @include title-l;
+    line-height: 150%;
     display: grid;
     place-items: center;
     gap: 20px;

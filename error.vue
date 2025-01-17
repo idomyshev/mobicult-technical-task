@@ -1,33 +1,40 @@
 <script setup lang="ts">
 import { lang } from "./lang";
-import ErrorPage from "~/components/ErrorPage.vue";
+import BasicButton from "~/components/basic/BasicButton.vue";
+import HomeIcon from "~/components/icons/HomeIcon.vue";
 
 const props = defineProps(["error"]);
 </script>
 
 <template>
-  <ErrorPage>
-    <div class="error-container">
+  <div class="error-page">
+    <div class="error-page__container">
       {{
         props.error.statusCode === 404 ? lang.error404 : lang.somethingWentWrong
       }}
-      <div class="go-to-home-page">
-        <RouterLink :to="{ name: 'index' }"> Go to home page </RouterLink>
-      </div>
+      <RouterLink :to="{ name: 'index' }">
+        <BasicButton :icon="HomeIcon" width="50px" height="50px" />
+      </RouterLink>
     </div>
-  </ErrorPage>
+  </div>
 </template>
 
 <style lang="scss" scoped>
 @import "@/scss/typography";
-.error-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  @include titles-l;
-}
-.go-to-home-page a {
-  @include titles-m;
+@import "@/scss/typography";
+.error-page {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    @include title-l;
+    text-align: center;
+  }
 }
 </style>

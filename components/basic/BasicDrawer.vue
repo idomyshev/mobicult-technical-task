@@ -98,7 +98,7 @@ defineExpose({
   }
 
   &__title {
-    @include titles-m;
+    @include title-m;
   }
 
   &__body {
