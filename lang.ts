@@ -5,6 +5,7 @@ export const lang = {
   createSticker: "Create Sticker",
   delete: "Delete",
   doYouConfirmDeleteSticker: "Do you confirm to delete sticker?",
+  doYouConfirmDiscardChanges: "Do you confirm to discard changes?",
   editSticker: "Edit Sticker",
   enterTextForSticker: "Enter text for sticker...",
   error404: "Oops... the page wasn't found!",
