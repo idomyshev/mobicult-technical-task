@@ -7,7 +7,7 @@ const stickersStore = useStickersStore();
 const { loadDatabase } = stickersStore;
 
 onMounted(() => {
-  //loadDatabase();
+  loadDatabase();
 });
 </script>
 <template>

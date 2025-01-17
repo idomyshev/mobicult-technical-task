@@ -56,7 +56,6 @@ defineProps({
 }
 
 .actions-buttons {
-  width: 190px;
   position: absolute;
   bottom: 0;
   right: 2px;
