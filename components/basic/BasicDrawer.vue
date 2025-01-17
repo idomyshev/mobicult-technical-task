@@ -43,9 +43,9 @@ defineExpose({
 </script>
 
 <template>
-  <Transition name="basic-drawer">
-    <Teleport to="body">
-      <div v-if="visible" class="basic-drawer">
+  <Teleport to="body">
+    <div v-show="visible" class="basic-drawer">
+      <Transition name="basic-drawer">
         <div v-if="visible" class="basic-drawer__inner">
           <div class="basic-drawer__title">{{ title }}</div>
           <div class="basic-drawer__body">
@@ -61,9 +61,9 @@ defineExpose({
             />
           </div>
         </div>
-      </div>
-    </Teleport>
-  </Transition>
+      </Transition>
+    </div>
+  </Teleport>
 </template>
 
 <style lang="scss" scoped>
@@ -75,9 +75,10 @@ defineExpose({
   position: fixed;
   top: 0;
   right: 0;
+  display: grid;
   width: 100vw;
   height: 100vh;
-  display: grid;
+  background-color: colors.$basic-drawer-overlay-background;
 
   &__inner {
     z-index: z-indexes.$basic-drawer-z-index;

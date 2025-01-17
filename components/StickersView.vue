@@ -71,6 +71,8 @@ const handleClickDelete = (item: ISticker) => {
 </template>
 
 <style scoped lang="scss">
+@import "@/scss/typography";
+
 .stickers-view {
   height: 100%;
   width: 100%;
@@ -95,8 +97,8 @@ const handleClickDelete = (item: ISticker) => {
   height: 100%;
   display: grid;
   place-items: center;
-  font-size: 1.125rem;
   div {
+    @include titles-m;
     display: grid;
     place-items: center;
     gap: 20px;
