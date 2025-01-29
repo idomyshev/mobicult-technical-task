@@ -20,8 +20,7 @@ const props = defineProps(["error"]);
 </template>
 
 <style lang="scss" scoped>
-@import "@/scss/typography";
-@import "@/scss/typography";
+@use "@/scss/typography";
 .error-page {
   display: grid;
   place-items: center;
@@ -33,7 +32,7 @@ const props = defineProps(["error"]);
     flex-direction: column;
     align-items: center;
     gap: 40px;
-    @include title-l;
+    @include typography.title-l;
     text-align: center;
   }
 }

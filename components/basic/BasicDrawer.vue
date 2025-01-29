@@ -69,7 +69,7 @@ defineExpose({
 <style lang="scss" scoped>
 @use "@/scss/colors";
 @use "@/scss/z-indexes";
-@import "@/scss/typography";
+@use "@/scss/typography";
 
 .basic-drawer {
   z-index: z-indexes.$basic-drawer;
@@ -98,7 +98,7 @@ defineExpose({
   }
 
   &__title {
-    @include title-m;
+    @include typography.title-m;
   }
 
   &__body {

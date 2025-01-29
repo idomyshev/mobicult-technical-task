@@ -1,9 +1,9 @@
 @use "colors";
-@import "typography";
+@use "typography";
 
 
 * {
-  @include all-document;
+  @include typography.all-document;
   color: colors.$main-text-color;
 }
 

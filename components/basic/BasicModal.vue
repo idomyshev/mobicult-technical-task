@@ -53,7 +53,7 @@ defineExpose({
 <style scoped lang="scss">
 @use "@/scss/z-indexes";
 @use "@/scss/colors";
-@import "@/scss/typography";
+@use "@/scss/typography";
 
 .basic-modal {
   z-index: z-indexes.$basic-modal;
@@ -79,7 +79,7 @@ defineExpose({
 }
 
 .title {
-  @include title-m;
+  @include typography.title-m;
 }
 
 .actions {

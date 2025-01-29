@@ -37,10 +37,10 @@ defineProps({
 
 <style scoped lang="scss">
 @use "@/scss/colors";
-@import "@/scss/typography";
+@use "@/scss/typography";
 
 .basic-button {
-  @include body-s;
+  @include typography.body-s;
   display: inline-block;
   padding: 8px 10px;
   border-radius: 5px;

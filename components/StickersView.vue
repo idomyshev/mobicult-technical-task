@@ -103,7 +103,7 @@ const handleConfirmDelete = () => {
 </template>
 
 <style scoped lang="scss">
-@import "@/scss/typography";
+@use "@/scss/typography";
 
 .stickers-view {
   height: 100%;
@@ -130,7 +130,7 @@ const handleConfirmDelete = () => {
   display: grid;
   place-items: center;
   div {
-    @include title-l;
+    @include typography.title-l;
     line-height: 150%;
     display: grid;
     place-items: center;
