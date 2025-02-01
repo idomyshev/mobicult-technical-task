@@ -9,11 +9,7 @@ const { isDataLoading } = storeToRefs(stickerStore);
 <template>
   <Teleport to="body">
     <div class="basic-loader" v-if="isDataLoading">
-      <img
-        src="@/images/loader.svg"
-        alt="loader"
-        style="width: 150px; height: 150px"
-      />
+      <img src="@/images/loader.svg" alt="loader" />
     </div>
   </Teleport>
 </template>
@@ -30,5 +26,10 @@ const { isDataLoading } = storeToRefs(stickerStore);
   height: 100vh;
   display: grid;
   place-items: center;
+
+  img {
+    width: 150px;
+    height: 150px;
+  }
 }
 </style>
