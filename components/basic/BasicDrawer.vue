@@ -25,11 +25,9 @@ const handleClickCancel = () => {
 };
 
 const handleClickAction = () => {
-  if (props.actionDisabled) {
-    return;
+  if (!props.actionDisabled) {
+    emit("click:action");
   }
-
-  emit("click:action");
 };
 
 defineExpose({
