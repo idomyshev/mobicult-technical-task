@@ -8,6 +8,10 @@ import BasicLoader from "~/components/basic/BasicLoader.vue";
 const stickersStore = useStickersStore();
 const { loadDatabase } = stickersStore;
 
+useHead({
+  title: "Stickers App (Vue, Nuxt)",
+});
+
 onMounted(() => {
   loadDatabase();
   window.addEventListener("storage", (event) => {

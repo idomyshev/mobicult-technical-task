@@ -1,75 +1,16 @@
-# Nuxt Minimal Starter
+# Stickers App (Vue 3, Nuxt)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is a simple application developed as a test task for the Vue developer position at Mobicult.
+Completion Date: January 15-17, 2025
+Time Spent: 26 hours
 
-## Setup
-
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Overview
+The application allows users to manage sticker cards.
+Users can add, edit, and delete stickers.
+A set of reusable UI components was created: Drawer, Loader, Modal, Button, Textarea, and Tabs.
+Utilized Vue 3 features such as Teleport, Transition, and dynamic components.
+Responsive design optimized for mobile devices using CSS Grid.
+Tech stack: Vue 3, Nuxt, Composition API, Pinia store.
+Local Storage Integration:
+• Data is saved in localStorage, ensuring persistence across page reloads
+• Data synchronization across tabs is handled by tracking changes through a specific key in localStorage.

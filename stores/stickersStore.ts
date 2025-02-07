@@ -3,6 +3,7 @@ import type { ISticker, IStickerForm } from "~/types";
 import { v4 as uuidv4 } from "uuid";
 import { storageKey } from "~/settings/storage";
 
+
 export const useStickersStore = defineStore("stickersStore", () => {
   const stickers = ref<ISticker[]>([]);
   const isDataLoading = ref<boolean>(true);
